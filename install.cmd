@@ -95,8 +95,10 @@ for /f "tokens=1,* delims==" %%A in ('type "%VENV_DIR%\pyvenv.cfg" 2^>nul') do (
     )
 )
 
-set "PATH_PREFIX=%VENV_DIR%\Scripts"
-if defined PY_HOME set "PATH_PREFIX=%PY_HOME%;%VENV_DIR%\Scripts"
+set "PATH_PREFIX=%VENV_DIR%\Scripts;%VENV_DIR%\Lib\site-packages\pywin32_system32"
+if defined PY_HOME set "PATH_PREFIX=%PY_HOME%;%VENV_DIR%\Scripts;%VENV_DIR%\Lib\site-packages\pywin32_system32"
+set "PYTHONPATH_PREFIX=%TARGET_DIR%\venv\Lib\site-packages"
+if defined PY_HOME set "PYTHONPATH_PREFIX=%PY_HOME%\Lib;%PY_HOME%\DLLs;%TARGET_DIR%\venv\Lib\site-packages"
 
 (
     echo $ErrorActionPreference = 'Stop'
@@ -152,6 +154,7 @@ if defined PY_HOME set "PATH_PREFIX=%PY_HOME%;%VENV_DIR%\Scripts"
     echo set "SYNTIOX_DATA_DIR=%DATA_DIR%"
     echo set "SYNTIOX_PYTHON_EXE=%VENV_PY%"
     echo set "PATH=%PATH_PREFIX%;%%PATH%%"
+    echo set "PYTHONPATH=%PYTHONPATH_PREFIX%"
     echo cd /d "%TARGET_DIR%"
     echo "%TARGET_DIR%\syntioxcore-server.exe" %%*
 ) > "%BIN_DIR%\stx.cmd"
@@ -161,6 +164,7 @@ if defined PY_HOME set "PATH_PREFIX=%PY_HOME%;%VENV_DIR%\Scripts"
     echo set "SYNTIOX_DATA_DIR=%DATA_DIR%"
     echo set "SYNTIOX_PYTHON_EXE=%VENV_PY%"
     echo set "PATH=%PATH_PREFIX%;%%PATH%%"
+    echo set "PYTHONPATH=%PYTHONPATH_PREFIX%"
     echo cd /d "%TARGET_DIR%"
     echo if exist "%%SYNTIOX_DATA_DIR%%\config\token.json" del /q "%%SYNTIOX_DATA_DIR%%\config\token.json"
     echo "%TARGET_DIR%\syntioxcore-server.exe" --auth-setup
