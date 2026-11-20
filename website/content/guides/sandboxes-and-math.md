@@ -1,3 +1,9 @@
+---
+title: Sandboxes & Math
+description: Run code and calculations safely in Syntiox CORE using python_sandbox, nodejs_sandbox, math_solver, Mermaid diagrams, and live KaTeX math rendering.
+keywords: Syntiox CORE sandboxes, python_sandbox, nodejs_sandbox, math_solver, KaTeX, LaTeX, Mermaid diagrams
+---
+
 # Sandboxes & Math
 
 Alongside external MCP servers, Syntiox CORE includes built-in execution sandboxes, system utilities, and KaTeX mathematical rendering in responses.

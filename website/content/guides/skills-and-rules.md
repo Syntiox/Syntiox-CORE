@@ -1,3 +1,9 @@
+---
+title: Skills & Global Rules
+description: Create reusable SKILL.md workflows with YAML frontmatter and customize global SYNTIOX_CORE.md agent rules in Syntiox CORE.
+keywords: Syntiox CORE skills, SKILL.md, SYNTIOX_CORE.md, global rules, agent workflows, markdown instructions
+---
+
 # Skills & Global Rules
 
 Skills let you give Syntiox CORE reusable markdown instructions for specific workflows without crowding your global rules.

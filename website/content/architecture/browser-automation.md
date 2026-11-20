@@ -1,3 +1,9 @@
+---
+title: Browser Automation
+description: Automate interactive web tasks in Syntiox CORE with autonomous browser navigation, form filling, client-rendered research, and persistent authenticated sessions.
+keywords: Syntiox CORE browser automation, autonomous web agent, persistent browser sessions, form filling, web research
+---
+
 # Browser Automation
 
 Syntiox CORE includes autonomous browser automation so the agent can handle interactive web tasks instead of stopping at static HTTP fetches.

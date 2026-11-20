@@ -1,3 +1,9 @@
+---
+title: Security & License
+description: Review Syntiox CORE vulnerability reporting guidelines, SHA-256 installer verification, local secret hygiene, DOMPurify sanitization, and MIT License terms.
+keywords: Syntiox CORE security, vulnerability reporting, SHA-256, MIT License, DOMPurify, local secret hygiene
+---
+
 # Security & License
 
 ## Reporting a Vulnerability
@@ -8,7 +14,7 @@ If you discover a security vulnerability in Syntiox CORE, please do not disclose
 2. Contact the maintainer (**Shaluka Gimhan**) privately by email or direct message.
 3. Wait for acknowledgment before discussing the report in public forums.
 
-Verified security issues are patched on the main supported branch ([SECURITY.md](https://github.com/Syntiox/Syntiox-CORE/blob/master/SECURITY.md)).
+Verified security issues are patched on the main supported branch ([SECURITY.md](https://github.com/syntiox/syntioxcore/blob/master/SECURITY.md)).
 
 ## Local Secret Hygiene
 
@@ -25,4 +31,4 @@ This static documentation site parses `.md` files client-side with **Marked.js**
 
 ## License
 
-Syntiox CORE is licensed under the **MIT License** — see [LICENSE](https://github.com/Syntiox/Syntiox-CORE/blob/master/LICENSE).
+Syntiox CORE is licensed under the **MIT License** — see [LICENSE](https://github.com/syntiox/syntioxcore/blob/master/LICENSE).

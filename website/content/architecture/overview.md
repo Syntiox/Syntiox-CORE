@@ -1,3 +1,9 @@
+---
+title: System Overview
+description: Explore Syntiox CORE's local-first Windows architecture combining a Tauri v2 desktop shell, compiled local backend server, Web Workspace, and persistent memory.
+keywords: Syntiox CORE architecture, local-first AI agent, Tauri v2, syntioxcore-server, Web Workspace, persistent memory
+---
+
 # System Overview
 
 Syntiox CORE is structured as a local-first Windows agent runtime rather than a hosted SaaS proxy. Models run through your own Gemini and Groq API keys while file access, PowerShell execution, browser profiles, and credentials remain on your machine.

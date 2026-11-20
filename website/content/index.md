@@ -1,3 +1,9 @@
+---
+title: Syntiox CORE
+description: Syntiox CORE is a local AI Agent OS for Windows powered by Google Gemini and Groq, with Desktop and Web Workspaces, browser automation, Google Workspace, MCP servers, and custom skills.
+keywords: Syntiox CORE, local AI agent, Windows AI OS, Google Gemini, Groq, browser automation, Google Workspace, MCP servers
+---
+
 # Syntiox CORE
 
 **A local AI Agent OS for Windows, powered by Google Gemini and Groq.**

@@ -1,3 +1,9 @@
+---
+title: Installation
+description: Install Syntiox CORE on Windows x64 using the official installer from GitHub Releases or the PowerShell install.cmd helper with SHA-256 verification.
+keywords: Syntiox CORE installation, Windows x64 installer, install.cmd, PowerShell, SHA-256 verification, Python 3.11
+---
+
 # Installation
 
 Syntiox CORE targets Windows (x64) and ships as a signed/checksum-verified Inno Setup installer (`Syntiox-CORE-Setup-*.exe`).
@@ -9,7 +15,7 @@ Syntiox CORE targets Windows (x64) and ships as a signed/checksum-verified Inno 
 
 ## Option 1: Windows Installer (Recommended)
 
-1. Download the latest `Syntiox-CORE-Setup-*.exe` and `SHA256SUMS.txt` from [GitHub Releases](https://github.com/Syntiox/Syntiox-CORE/releases/latest).
+1. Download the latest `Syntiox-CORE-Setup-*.exe` and `SHA256SUMS.txt` from [GitHub Releases](https://github.com/syntiox/syntioxcore/releases/latest).
 2. Run the installer and follow the setup prompts.
 3. Launch **Syntiox CORE** from the Start Menu or Desktop shortcut, or open **Syntiox CORE (Web Workspace)** from the Start Menu to use it in your browser.
 
@@ -18,7 +24,7 @@ Syntiox CORE targets Windows (x64) and ships as a signed/checksum-verified Inno 
 Run this command in PowerShell to download `install.cmd`, check the release SHA-256 hash against `SHA256SUMS.txt`, and start the installer automatically:
 
 ```powershell
-irm https://syntiox.github.io/Syntiox-CORE/install.cmd -OutFile install.cmd ; .\install.cmd
+irm https://syntiox.github.io/syntioxcore/install.cmd -OutFile install.cmd ; .\install.cmd
 ```
 
 > [!NOTE]

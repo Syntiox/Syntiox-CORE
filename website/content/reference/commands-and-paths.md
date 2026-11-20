@@ -1,3 +1,9 @@
+---
+title: Commands & Paths
+description: Quick reference for Syntiox CORE Windows configuration paths under %USERPROFILE%\.sh4lu-z\Syntiox CORE and chat slash commands.
+keywords: Syntiox CORE paths, slash commands, Windows config directory, /new, /clear, /reset, /history, /load
+---
+
 # Commands & Paths
 
 Quick reference for Windows configuration locations and chat composer commands.

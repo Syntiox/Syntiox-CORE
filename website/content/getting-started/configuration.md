@@ -1,3 +1,9 @@
+---
+title: Configuration (.env)
+description: Configure Syntiox CORE with .env settings including GEMINI_API_KEY rotation, GOOGLE_MODEL, THINKING_LEVEL, Groq API keys, and web search providers.
+keywords: Syntiox CORE configuration, .env, GEMINI_API_KEY rotation, GOOGLE_MODEL, THINKING_LEVEL, Groq, Tavily, Exa, Firecrawl
+---
+
 # Configuration (.env)
 
 After installation, Syntiox CORE reads API keys and model defaults from a local `.env` file on your machine:

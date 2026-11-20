@@ -1,3 +1,9 @@
+---
+title: Desktop & Web UI
+description: Learn how Syntiox CORE's Tauri Desktop App and Web Workspace handle streaming chat, Workspace Inspector, PowerShell command approvals, background tasks, and PIN lock.
+keywords: Syntiox CORE UI, Desktop App, Web Workspace, Workspace Inspector, PowerShell approvals, PIN lock, KaTeX, Markdown
+---
+
 # Desktop & Web UI
 
 Syntiox CORE exposes the same core workspace in both the **Tauri v2 Desktop App** and the **Web Workspace**, designed around rapid inspection and human-in-the-loop control.

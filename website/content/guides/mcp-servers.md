@@ -1,3 +1,9 @@
+---
+title: MCP Servers & Guardrails
+description: Configure built-in and external stdio Model Context Protocol (MCP) servers in Syntiox CORE via the UI or mcp_servers.json with granular tool guardrails.
+keywords: Syntiox CORE MCP servers, Model Context Protocol, mcp_servers.json, tool guardrails, allow_ask, allow_process, stdio
+---
+
 # MCP Servers & Guardrails
 
 Syntiox CORE supports external Model Context Protocol (MCP) servers alongside its built-in integrations.

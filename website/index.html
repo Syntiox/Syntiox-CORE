@@ -3,13 +3,59 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- seo:start -->
   <title>Syntiox CORE — Local AI Agent OS for Windows</title>
   <meta name="description" content="Syntiox CORE is a local AI Agent OS for Windows powered by Google Gemini and Groq, with Desktop and Web Workspaces, browser automation, Google Workspace, MCP servers, and custom skills.">
-  <meta property="og:title" content="Syntiox CORE — Local AI Agent OS for Windows">
-  <meta property="og:description" content="Local AI Agent OS for Windows powered by Google Gemini and Groq. Automate files, PowerShell, browsers, Google Workspace, and MCP tools.">
+  <meta name="keywords" content="Syntiox CORE, local AI agent, Windows AI OS, Google Gemini, Groq, browser automation, Google Workspace, MCP servers">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Syntiox">
+  <link rel="canonical" href="https://syntiox.github.io/syntioxcore/">
+  <meta property="og:site_name" content="Syntiox CORE">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://syntiox.github.io/syntioxcore/">
+  <meta property="og:title" content="Syntiox CORE — Local AI Agent OS for Windows">
+  <meta property="og:description" content="Syntiox CORE is a local AI Agent OS for Windows powered by Google Gemini and Groq, with Desktop and Web Workspaces, browser automation, Google Workspace, MCP servers, and custom skills.">
+  <meta property="og:image" content="https://syntiox.github.io/syntioxcore/og-image.png">
+  <meta property="og:image:alt" content="Syntiox CORE logo">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Syntiox CORE — Local AI Agent OS for Windows">
+  <meta name="twitter:description" content="Syntiox CORE is a local AI Agent OS for Windows powered by Google Gemini and Groq, with Desktop and Web Workspaces, browser automation, Google Workspace, MCP servers, and custom skills.">
+  <meta name="twitter:image" content="https://syntiox.github.io/syntioxcore/og-image.png">
+  <script type="application/ld+json" id="seo-jsonld">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "Syntiox CORE",
+        "url": "https://syntiox.github.io/syntioxcore/",
+        "description": "Syntiox CORE is a local AI Agent OS for Windows powered by Google Gemini and Groq, with Desktop and Web Workspaces, browser automation, Google Workspace, MCP servers, and custom skills."
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Syntiox CORE",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Windows 10, Windows 11 (x64)",
+        "url": "https://syntiox.github.io/syntioxcore/",
+        "downloadUrl": "https://github.com/syntiox/syntioxcore/releases/latest",
+        "softwareVersion": "2.0.0",
+        "license": "https://github.com/syntiox/syntioxcore/blob/master/LICENSE",
+        "image": "https://syntiox.github.io/syntioxcore/og-image.png",
+        "description": "Local AI Agent OS for Windows powered by Google Gemini and Groq, featuring Desktop and Web Workspaces, browser automation, Google Workspace integration, and MCP servers.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    ]
+  }
+  </script>
+  <!-- seo:end -->
+  <meta name="google-site-verification" content="xi3ahPasoM8R563_VGC0vB5x0A5eymB_HOqI6YTXZaE" />
   <meta name="theme-color" content="#070709">
   <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="apple-touch-icon" href="./og-image.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -52,9 +98,9 @@
           <kbd class="kbd-hint">Ctrl K</kbd>
         </button>
 
-        <a class="nav-link desktop-sm-only" href="https://github.com/Syntiox/Syntiox-CORE" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="nav-link desktop-sm-only" href="https://github.com/syntiox/syntioxcore" target="_blank" rel="noopener noreferrer">GitHub</a>
 
-        <a class="download-btn" data-release-link href="https://github.com/Syntiox/Syntiox-CORE/releases/latest" target="_blank" rel="noopener noreferrer">
+        <a class="download-btn" data-release-link href="https://github.com/syntiox/syntioxcore/releases/latest" target="_blank" rel="noopener noreferrer">
           <span>Download</span>
         </a>
       </div>
@@ -90,10 +136,10 @@
         </p>
 
         <div class="hero-actions">
-          <a class="btn-primary" data-release-link href="https://github.com/Syntiox/Syntiox-CORE/releases/latest" target="_blank" rel="noopener noreferrer">
+          <a class="btn-primary" data-release-link href="https://github.com/syntiox/syntioxcore/releases/latest" target="_blank" rel="noopener noreferrer">
             Download Windows Installer
           </a>
-          <a class="btn-secondary" href="https://github.com/Syntiox/Syntiox-CORE" target="_blank" rel="noopener noreferrer">
+          <a class="btn-secondary" href="https://github.com/syntiox/syntioxcore" target="_blank" rel="noopener noreferrer">
             Browse GitHub Repo
           </a>
           <a class="btn-secondary" href="#/getting-started/installation">
@@ -103,7 +149,7 @@
 
         <div class="install-bar">
           <span class="install-bar-label">PowerShell</span>
-          <code id="hero-ps-cmd" class="install-bar-cmd">irm https://syntiox.github.io/Syntiox-CORE/install.cmd -OutFile install.cmd ; .\install.cmd</code>
+          <code id="hero-ps-cmd" class="install-bar-cmd">irm https://syntiox.github.io/syntioxcore/install.cmd -OutFile install.cmd ; .\install.cmd</code>
           <button class="copy-btn" type="button" data-copy-target="hero-ps-cmd">Copy</button>
         </div>
 
@@ -118,7 +164,7 @@
           <span aria-hidden="true">/</span>
           <span id="doc-section-name"></span>
         </div>
-        <a id="doc-source-link" class="source-link" href="https://github.com/Syntiox/Syntiox-CORE" target="_blank" rel="noopener noreferrer">View source .md</a>
+        <a id="doc-source-link" class="source-link" href="https://github.com/syntiox/syntioxcore" target="_blank" rel="noopener noreferrer">View source .md</a>
       </div>
 
       <article id="markdown-root" class="markdown-body" aria-live="polite">
@@ -133,12 +179,12 @@
           <span>Syntiox CORE · Local AI Agent OS for Windows · MIT License</span>
         </div>
         <div class="footer-links">
-          <a href="https://github.com/Syntiox/Syntiox-CORE" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href="https://github.com/Syntiox/Syntiox-CORE/releases/latest" target="_blank" rel="noopener noreferrer">Releases</a>
+          <a href="https://github.com/syntiox/syntioxcore" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://github.com/syntiox/syntioxcore/releases/latest" target="_blank" rel="noopener noreferrer">Releases</a>
           <a href="#/guides/mcp-servers">MCP Guide</a>
           <a href="#/guides/skills-and-rules">Skills Guide</a>
           <a href="#/reference/security">Security</a>
-          <a href="https://github.com/Syntiox/Syntiox-CORE/blob/master/LICENSE" target="_blank" rel="noopener noreferrer">License</a>
+          <a href="https://github.com/syntiox/syntioxcore/blob/master/LICENSE" target="_blank" rel="noopener noreferrer">License</a>
         </div>
       </footer>
     </main>

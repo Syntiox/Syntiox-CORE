@@ -1,3 +1,9 @@
+---
+title: Google Workspace
+description: Connect Gmail, Drive, Docs, Sheets, Slides, Forms, Calendar, and Tasks in Syntiox CORE using your own local OAuth 2.0 Desktop credentials.json.
+keywords: Syntiox CORE Google Workspace, OAuth 2.0, credentials.json, Gmail, Google Drive, Google Calendar, Docs, Sheets, MCP
+---
+
 # Google Workspace
 
 Syntiox CORE includes built-in MCP servers for eight Google Workspace services so the agent can read and act on your account only when you connect your own OAuth 2.0 Desktop client.

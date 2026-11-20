@@ -1,10 +1,14 @@
 (function () {
   "use strict";
 
-  const REPO_URL = "https://github.com/Syntiox/Syntiox-CORE";
+  const REPO_URL = "https://github.com/syntiox/syntioxcore";
   const RELEASE_LATEST_URL = REPO_URL + "/releases/latest";
-  const RELEASE_API_URL = "https://api.github.com/repos/Syntiox/Syntiox-CORE/releases/latest";
-  const MANIFEST_URL = "./content/manifest.json";
+  const RELEASE_API_URL = "https://api.github.com/repos/syntiox/syntioxcore/releases/latest";
+  const BODY_DATA = document.body ? document.body.dataset : {};
+  const BASE_PATH = BODY_DATA.basePath || "./";
+  const INITIAL_SLUG = BODY_DATA.pageSlug || "";
+  const CLEAN_URLS = BODY_DATA.cleanUrls === "true";
+  const MANIFEST_URL = BASE_PATH + "content/manifest.json";
 
   const state = {
     manifest: null,
@@ -173,6 +177,42 @@
     return idx - lineStart <= 3;
   }
 
+  function getPageHref(slug, anchor) {
+    const cleanAnchor = anchor ? "#" + String(anchor).replace(/^#/, "") : "";
+    if (CLEAN_URLS) {
+      const route = slug === "index" ? BASE_PATH : BASE_PATH + slug + "/";
+      return route + cleanAnchor;
+    }
+    const hashRoute = slug === "index" ? "#/" : "#/" + slug;
+    return hashRoute + cleanAnchor;
+  }
+
+  function parseFrontmatter(rawMarkdown) {
+    const src = String(rawMarkdown || "").replace(/\r\n/g, "\n");
+    const match = src.match(/^---\n([\s\S]*?)\n---(?:\n+|$)/);
+    if (!match) {
+      return { meta: {}, body: src };
+    }
+    const meta = {};
+    for (const line of match[1].split("\n")) {
+      const idx = line.indexOf(":");
+      if (idx === -1) continue;
+      const key = line.slice(0, idx).trim();
+      let val = line.slice(idx + 1).trim();
+      if (
+        (val.startsWith('"') && val.endsWith('"')) ||
+        (val.startsWith("'") && val.endsWith("'"))
+      ) {
+        val = val.slice(1, -1);
+      }
+      if (key) meta[key] = val;
+    }
+    return {
+      meta: meta,
+      body: src.slice(match[0].length)
+    };
+  }
+
   // Extract LaTeX expressions while skipping fenced and inline code spans
   function extractMathExpressions(rawMarkdown) {
     const src = String(rawMarkdown || "").replace(/\r\n/g, "\n");
@@ -275,12 +315,13 @@
   }
 
   function renderMarkdownToHtml(rawMarkdown, currentSlug) {
-    const extracted = extractMathExpressions(rawMarkdown);
+    const parsed = parseFrontmatter(rawMarkdown);
+    const extracted = extractMathExpressions(parsed.body);
     const slugCounts = new Map();
 
     if (!window.marked || typeof window.marked.Marked !== "function") {
       return {
-        html: "<pre>" + escapeHtml(rawMarkdown) + "</pre>",
+        html: "<pre>" + escapeHtml(parsed.body) + "</pre>",
         mathList: []
       };
     }
@@ -299,11 +340,13 @@
           const innerHtml = typeof tokenOrText === "object" && tokenOrText.tokens && this.parser
             ? this.parser.parseInline(tokenOrText.tokens)
             : escapeHtml(rawText);
-          const routePrefix = currentSlug === "index" ? "#/" : "#/" + currentSlug;
+          const anchorHref = CLEAN_URLS
+            ? "#" + id
+            : (currentSlug === "index" ? "#/" : "#/" + currentSlug) + "#" + id;
           return (
             "<h" + depth + ' id="' + escapeAttr(id) + '">' +
             innerHtml +
-            '<a class="heading-anchor" href="' + escapeAttr(routePrefix + "#" + id) + '" aria-label="Link to heading">#</a>' +
+            '<a class="heading-anchor" href="' + escapeAttr(anchorHref) + '" aria-label="Link to heading">#</a>' +
             "</h" + depth + ">\n"
           );
         },
@@ -387,8 +430,7 @@
     const resolvedSlug = resolvedFile.replace(/\.md$/i, "");
     if (!state.pageBySlug.has(resolvedSlug)) return null;
 
-    const routeBase = resolvedSlug === "index" ? "#/" : "#/" + resolvedSlug;
-    return routeBase + anchorPart;
+    return getPageHref(resolvedSlug, anchorPart);
   }
 
   function enhanceRenderedDom(container, currentPage, mathList) {
@@ -517,7 +559,7 @@
         const li = document.createElement("li");
         const a = document.createElement("a");
         a.className = "nav-item-link";
-        a.href = item.slug === "index" ? "#/" : "#/" + item.slug;
+        a.href = getPageHref(item.slug);
         a.dataset.slug = item.slug;
         a.textContent = item.title;
         a.addEventListener("click", function () {
@@ -559,7 +601,7 @@
     for (const h of headings) {
       const a = document.createElement("a");
       a.className = "toc-link" + (h.tagName === "H3" ? " is-sub" : "");
-      a.href = routePrefix + "#" + h.id;
+      a.href = CLEAN_URLS ? "#" + h.id : routePrefix + "#" + h.id;
       const clone = h.cloneNode(true);
       const anchorSpan = clone.querySelector(".heading-anchor");
       if (anchorSpan) anchorSpan.remove();
@@ -603,7 +645,7 @@
     if (prev) {
       const a = document.createElement("a");
       a.className = "pager-card is-prev";
-      a.href = prev.slug === "index" ? "#/" : "#/" + prev.slug;
+      a.href = getPageHref(prev.slug);
       const dir = document.createElement("span");
       dir.className = "pager-dir";
       dir.textContent = "Previous";
@@ -618,7 +660,7 @@
     if (next) {
       const a = document.createElement("a");
       a.className = "pager-card is-next";
-      a.href = next.slug === "index" ? "#/" : "#/" + next.slug;
+      a.href = getPageHref(next.slug);
       const dir = document.createElement("span");
       dir.className = "pager-dir";
       dir.textContent = "Next";
@@ -632,7 +674,34 @@
   }
 
   function parseRouteFromHash() {
-    const raw = window.location.hash || "#/";
+    const rawHash = window.location.hash || "";
+    if (CLEAN_URLS) {
+      const initial = state.pageBySlug.has(INITIAL_SLUG) ? INITIAL_SLUG : "index";
+      if (rawHash.startsWith("#/")) {
+        const stripped = rawHash.replace(/^#\/?/, "");
+        const anchorIdx = stripped.indexOf("#");
+        const pathPart = (anchorIdx === -1 ? stripped : stripped.slice(0, anchorIdx)).replace(/\.md$/i, "").replace(/\/+$/, "");
+        const anchorPart = anchorIdx === -1 ? "" : stripped.slice(anchorIdx + 1);
+        const targetSlug = state.pageBySlug.has(pathPart || "index") ? (pathPart || "index") : "index";
+        if (targetSlug !== initial) {
+          window.location.replace(getPageHref(targetSlug, anchorPart));
+          return null;
+        }
+        const cleanUrl = anchorPart
+          ? "#" + anchorPart
+          : window.location.pathname + window.location.search;
+        if (window.history && typeof window.history.replaceState === "function") {
+          window.history.replaceState(null, "", cleanUrl);
+        }
+        return { slug: targetSlug, anchor: anchorPart };
+      }
+      return {
+        slug: initial,
+        anchor: rawHash.replace(/^#/, "")
+      };
+    }
+
+    const raw = rawHash || "#/";
     const stripped = raw.replace(/^#\/?/, "");
     const anchorIdx = stripped.indexOf("#");
     const pathPart = (anchorIdx === -1 ? stripped : stripped.slice(0, anchorIdx)).replace(/\.md$/i, "").replace(/\/+$/, "");
@@ -648,7 +717,7 @@
     if (state.markdownCache.has(file)) {
       return state.markdownCache.get(file);
     }
-    const res = await fetch("./content/" + file);
+    const res = await fetch(BASE_PATH + "content/" + file);
     if (!res.ok) {
       throw new Error("Failed to load " + file + " (" + res.status + ")");
     }
@@ -661,6 +730,7 @@
     if (!state.manifest) return;
 
     const route = parseRouteFromHash();
+    if (!route) return;
     const page = state.pageBySlug.get(route.slug);
     if (!page) return;
 
@@ -696,6 +766,19 @@
       const mdText = await fetchMarkdown(page.file);
       if (gen !== state.renderGen) return;
 
+      const parsed = parseFrontmatter(mdText);
+      const pageTitle = parsed.meta.title || page.title;
+      const pageDesc = parsed.meta.description || page.summary || "";
+
+      document.title = isHome
+        ? "Syntiox CORE — Local AI Agent OS for Windows"
+        : pageTitle + " — Syntiox CORE";
+
+      if (pageDesc) {
+        const descMeta = document.querySelector('meta[name="description"]');
+        if (descMeta) descMeta.setAttribute("content", pageDesc);
+      }
+
       const rendered = renderMarkdownToHtml(mdText, page.slug);
       els.markdownRoot.innerHTML = rendered.html;
       enhanceRenderedDom(els.markdownRoot, page, rendered.mathList);
@@ -713,9 +796,14 @@
           return;
         }
       }
-      window.scrollTo({ top: 0, behavior: "auto" });
+      if (!CLEAN_URLS) {
+        window.scrollTo({ top: 0, behavior: "auto" });
+      }
     } catch (err) {
       if (gen !== state.renderGen) return;
+      if (CLEAN_URLS && els.markdownRoot && !els.markdownRoot.querySelector(".loading-state") && els.markdownRoot.textContent.trim()) {
+        return;
+      }
       const errBox = document.createElement("div");
       errBox.className = "error-state";
       errBox.textContent = err.message;
@@ -726,14 +814,15 @@
 
   // Strip markdown syntax for Fuse.js search indexing
   function stripMarkdownForSearch(mdText) {
+    const body = parseFrontmatter(mdText).body;
     const headings = [];
-    const lines = String(mdText || "").split(/\r?\n/);
+    const lines = body.split(/\r?\n/);
     for (const line of lines) {
       const m = line.match(/^#{1,4}\s+(.+)/);
       if (m) headings.push(m[1].replace(/`/g, "").trim());
     }
 
-    const plain = String(mdText || "")
+    const plain = body
       .replace(/```[\s\S]*?```/g, " ")
       .replace(/`([^`]*)`/g, "$1")
       .replace(/!\[([^\]]*)\]\([^)]+\)/g, "$1")
@@ -965,7 +1054,11 @@
 
   function navigateToSearchItem(item) {
     closeSearchModal();
-    window.location.hash = item.slug === "index" ? "#/" : "#/" + item.slug;
+    if (CLEAN_URLS) {
+      window.location.href = getPageHref(item.slug);
+    } else {
+      window.location.hash = item.slug === "index" ? "#/" : "#/" + item.slug;
+    }
   }
 
   async function openSearchModal() {
@@ -1150,6 +1243,9 @@
       await renderRoute();
       buildSearchIndex();
     } catch (err) {
+      if (CLEAN_URLS && els.markdownRoot && !els.markdownRoot.querySelector(".loading-state") && els.markdownRoot.textContent.trim()) {
+        return;
+      }
       const notice = document.createElement("div");
       notice.className = "local-notice";
       const title = document.createElement("strong");
