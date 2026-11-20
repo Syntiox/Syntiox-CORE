@@ -731,7 +731,11 @@ kbd {
 }
 
 .mermaid-label {
-  padding: 6px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 6px 10px 6px 14px;
   background: var(--obsidian-850);
   border-bottom: 1px solid var(--obsidian-750);
   font-family: var(--font-mono);
@@ -739,15 +743,95 @@ kbd {
   color: var(--text-muted);
 }
 
+.mermaid-expand-btn {
+  flex-shrink: 0;
+  height: 26px;
+  padding: 0 10px;
+  border-radius: 6px;
+  border: 1px solid var(--obsidian-700);
+  background: var(--obsidian-800);
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.14s ease, border-color 0.14s ease, background-color 0.14s ease;
+}
+
+.mermaid-expand-btn:hover {
+  color: var(--text-primary);
+  background: var(--obsidian-750);
+  border-color: var(--spectrum-cyan);
+}
+
 .mermaid-canvas {
-  padding: 18px;
+  padding: 20px 18px;
   overflow-x: auto;
-  display: flex;
-  justify-content: center;
+  display: block;
+}
+
+.mermaid-diagram {
+  width: 100%;
 }
 
 .mermaid-canvas svg {
-  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+  height: auto;
+}
+
+.mermaid-lightbox[hidden] {
+  display: none;
+}
+
+.mermaid-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(7, 7, 9, 0.85);
+  backdrop-filter: blur(6px);
+}
+
+.mermaid-lightbox-dialog {
+  width: min(1240px, 94vw);
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  border-radius: 14px;
+  border: 1px solid var(--obsidian-700);
+  background: var(--obsidian-900);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.75);
+  overflow: hidden;
+}
+
+.mermaid-lightbox-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  background: var(--obsidian-850);
+  border-bottom: 1px solid var(--obsidian-750);
+}
+
+.mermaid-lightbox-title {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.mermaid-lightbox-body {
+  padding: 24px;
+  overflow: auto;
+}
+
+.mermaid-lightbox-body svg {
+  display: block;
+  margin: 0 auto;
   height: auto;
 }
 
@@ -1135,6 +1219,17 @@ kbd {
     padding: 0 12px;
   }
 
+  .header-left,
+  .header-right {
+    gap: 8px;
+  }
+
+  .brand-link {
+    gap: 8px;
+    font-size: 14px;
+  }
+
+  .site-header .version-pill,
   .desktop-sm-only,
   .search-trigger-label,
   .kbd-hint {
@@ -1148,12 +1243,63 @@ kbd {
     justify-content: center;
   }
 
+  .download-btn {
+    padding: 0 11px;
+    font-size: 12.5px;
+  }
+
+  .workspace-shell {
+    padding: 0 14px;
+  }
+
+  .doc-main {
+    padding: 20px 0 36px 0;
+  }
+
+  .doc-header {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
   .home-hero {
     padding: 20px;
   }
 
+  .hero-actions .btn-primary,
+  .hero-actions .btn-secondary {
+    flex: 1 1 auto;
+  }
+
   .install-bar {
     flex-wrap: wrap;
+  }
+
+  .install-bar-cmd {
+    flex: 1 1 100%;
+    order: 3;
+  }
+
+  .install-bar .copy-btn {
+    margin-left: auto;
+  }
+
+  .mermaid-canvas {
+    padding: 14px 12px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .mermaid-lightbox {
+    padding: 10px;
+  }
+
+  .mermaid-lightbox-dialog {
+    width: 100%;
+    max-height: 92vh;
+  }
+
+  .mermaid-lightbox-body {
+    padding: 14px;
+    -webkit-overflow-scrolling: touch;
   }
 
   .doc-pager {
