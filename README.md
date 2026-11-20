@@ -36,7 +36,7 @@ Download and run the latest `Syntiox-CORE-Setup-*.exe` from [GitHub Releases](ht
 #### Option 2: PowerShell Install
 Downloads and launches the latest `Syntiox-CORE-Setup-*.exe` automatically:
 ```powershell
-irm https://raw.githubusercontent.com/Syntiox/Syntiox-CORE/master/install.cmd -OutFile install.cmd ; .\install.cmd
+irm https://syntiox.github.io/Syntiox-CORE/install.cmd -OutFile install.cmd ; .\install.cmd
 ```
 
 ### 2. Configure API Keys (`.env`)

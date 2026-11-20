@@ -1,0 +1,113 @@
+{
+  "sections": [
+    {
+      "title": "Overview",
+      "items": [
+        {
+          "slug": "index",
+          "title": "Syntiox CORE",
+          "file": "index.md",
+          "summary": "A local AI Agent OS for Windows, powered by Google Gemini and Groq.",
+          "tags": ["overview", "windows", "gemini", "groq", "agent"]
+        }
+      ]
+    },
+    {
+      "title": "Getting Started",
+      "items": [
+        {
+          "slug": "getting-started/installation",
+          "title": "Installation",
+          "file": "getting-started/installation.md",
+          "summary": "Install Syntiox CORE on Windows x64 via GitHub Releases or install.cmd with SHA-256 verification.",
+          "tags": ["install", "setup", "powershell", "sha256", "windows", "python"]
+        },
+        {
+          "slug": "getting-started/configuration",
+          "title": "Configuration (.env)",
+          "file": "getting-started/configuration.md",
+          "summary": "Configure GEMINI_API_KEY rotation, GOOGLE_MODEL, THINKING_LEVEL, Groq, and search keys.",
+          "tags": ["env", "api key", "rotation", "gemini", "groq", "tavily", "exa", "firecrawl"]
+        },
+        {
+          "slug": "getting-started/google-workspace",
+          "title": "Google Workspace",
+          "file": "getting-started/google-workspace.md",
+          "summary": "Set up OAuth 2.0 Desktop credentials.json for Gmail, Drive, Docs, Sheets, Slides, Forms, Calendar, and Tasks.",
+          "tags": ["google", "oauth", "credentials.json", "gmail", "drive", "calendar", "docs", "sheets"]
+        }
+      ]
+    },
+    {
+      "title": "Architecture",
+      "items": [
+        {
+          "slug": "architecture/overview",
+          "title": "System Overview",
+          "file": "architecture/overview.md",
+          "summary": "Local-first architecture combining Tauri v2, a compiled backend, Web Workspace, and persistent memory.",
+          "tags": ["architecture", "tauri", "backend", "web workspace", "memory", "local"]
+        },
+        {
+          "slug": "architecture/workspace-ui",
+          "title": "Desktop & Web UI",
+          "file": "architecture/workspace-ui.md",
+          "summary": "Chat rendering, split-pane Workspace Inspector, PowerShell command approvals, background tasks, and PIN lock.",
+          "tags": ["ui", "inspector", "powershell", "pin", "slash commands", "katex", "markdown"]
+        },
+        {
+          "slug": "architecture/browser-automation",
+          "title": "Browser Automation",
+          "file": "architecture/browser-automation.md",
+          "summary": "Research, click, fill forms, and keep authenticated browser sessions across runs.",
+          "tags": ["browser", "automation", "sessions", "forms", "login"]
+        }
+      ]
+    },
+    {
+      "title": "Guides",
+      "items": [
+        {
+          "slug": "guides/mcp-servers",
+          "title": "MCP Servers & Guardrails",
+          "file": "guides/mcp-servers.md",
+          "summary": "Add built-in and external MCP servers via UI or mcp_servers.json and set tool guardrails.",
+          "tags": ["mcp", "mcp_servers.json", "guardrails", "allow_ask", "allow_process", "stdio"]
+        },
+        {
+          "slug": "guides/skills-and-rules",
+          "title": "Skills & Global Rules",
+          "file": "guides/skills-and-rules.md",
+          "summary": "Author reusable SKILL.md workflows and SYNTIOX_CORE.md global rules.",
+          "tags": ["skills", "SKILL.md", "rules", "SYNTIOX_CORE.md", "frontmatter"]
+        },
+        {
+          "slug": "guides/sandboxes-and-math",
+          "title": "Sandboxes & Math",
+          "file": "guides/sandboxes-and-math.md",
+          "summary": "Use python_sandbox, nodejs_sandbox, math_solver, and KaTeX equation formatting.",
+          "tags": ["sandbox", "python", "nodejs", "math_solver", "katex", "latex", "mermaid"]
+        }
+      ]
+    },
+    {
+      "title": "Reference",
+      "items": [
+        {
+          "slug": "reference/commands-and-paths",
+          "title": "Commands & Paths",
+          "file": "reference/commands-and-paths.md",
+          "summary": "Quick reference for Windows config directories and chat slash commands.",
+          "tags": ["paths", "commands", "slash", "new", "clear", "reset", "history", "load"]
+        },
+        {
+          "slug": "reference/security",
+          "title": "Security & License",
+          "file": "reference/security.md",
+          "summary": "Vulnerability reporting, SHA-256 installer checks, local secret hygiene, and MIT License.",
+          "tags": ["security", "license", "mit", "sha256", "credentials", "dompurify"]
+        }
+      ]
+    }
+  ]
+}

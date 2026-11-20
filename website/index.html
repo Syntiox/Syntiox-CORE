@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Syntiox CORE — Local AI Agent OS for Windows</title>
+  <meta name="description" content="Syntiox CORE is a local AI Agent OS for Windows powered by Google Gemini and Groq, with Desktop and Web Workspaces, browser automation, Google Workspace, MCP servers, and custom skills.">
+  <meta property="og:title" content="Syntiox CORE — Local AI Agent OS for Windows">
+  <meta property="og:description" content="Local AI Agent OS for Windows powered by Google Gemini and Groq. Automate files, PowerShell, browsers, Google Workspace, and MCP tools.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#070709">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.8.1/github-markdown-dark.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.11.1/styles/github-dark-dimmed.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#doc-content">Skip to documentation</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-left">
+        <button id="sidebar-toggle" class="icon-btn mobile-only" type="button" aria-label="Open navigation" aria-controls="sidebar-nav" aria-expanded="false">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+
+        <a class="brand-link" href="#/">
+          <span class="brand-mark" aria-hidden="true">
+            <img src="./favicon.svg" alt="" width="24" height="24">
+          </span>
+          <span class="brand-name">Syntiox CORE</span>
+        </a>
+
+        <span class="version-pill" data-release-tag title="Latest Windows x64 release">v2.0.0</span>
+      </div>
+
+      <div class="header-right">
+        <button id="search-trigger" class="search-trigger" type="button" aria-label="Search documentation">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <span class="search-trigger-label">Search docs...</span>
+          <kbd class="kbd-hint">Ctrl K</kbd>
+        </button>
+
+        <a class="nav-link desktop-sm-only" href="https://github.com/Syntiox/Syntiox-CORE" target="_blank" rel="noopener noreferrer">GitHub</a>
+
+        <a class="download-btn" data-release-link href="https://github.com/Syntiox/Syntiox-CORE/releases/latest" target="_blank" rel="noopener noreferrer">
+          <span>Download</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div id="sidebar-backdrop" class="sidebar-backdrop" hidden></div>
+
+  <div class="workspace-shell">
+    <aside id="sidebar-nav" class="sidebar" aria-label="Documentation navigation">
+      <div class="sidebar-head mobile-only">
+        <span class="sidebar-head-title">Navigation</span>
+        <button id="sidebar-close" class="icon-btn" type="button" aria-label="Close navigation">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <nav id="nav-tree" class="nav-tree"></nav>
+    </aside>
+
+    <main id="doc-content" class="doc-main" tabindex="-1">
+      <section id="home-hero" class="home-hero spectrum-border" aria-label="Syntiox CORE overview">
+        <div class="hero-badges">
+          <span class="badge badge-accent">Windows x64</span>
+          <span class="badge" data-release-tag>v2.0.0</span>
+          <span class="badge">MIT License</span>
+        </div>
+        <h1 class="hero-title">Local AI Agent OS for Windows</h1>
+        <p class="hero-subtitle">
+          Powered by Google Gemini and Groq to automate multi-step work across files, terminals, web browsers, Google Workspace, and MCP tools.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn-primary" data-release-link href="https://github.com/Syntiox/Syntiox-CORE/releases/latest" target="_blank" rel="noopener noreferrer">
+            Download Windows Installer
+          </a>
+          <a class="btn-secondary" href="https://github.com/Syntiox/Syntiox-CORE" target="_blank" rel="noopener noreferrer">
+            Browse GitHub Repo
+          </a>
+          <a class="btn-secondary" href="#/getting-started/installation">
+            Install Guide
+          </a>
+        </div>
+
+        <div class="install-bar">
+          <span class="install-bar-label">PowerShell</span>
+          <code id="hero-ps-cmd" class="install-bar-cmd">irm https://syntiox.github.io/Syntiox-CORE/install.cmd -OutFile install.cmd ; .\install.cmd</code>
+          <button class="copy-btn" type="button" data-copy-target="hero-ps-cmd">Copy</button>
+        </div>
+
+        <p class="hero-footnote">
+          Python 3.11 is installed automatically if missing. Verified against SHA256SUMS.txt.
+        </p>
+      </section>
+
+      <div id="doc-header" class="doc-header" hidden>
+        <div class="doc-breadcrumb">
+          <a href="#/">Docs</a>
+          <span aria-hidden="true">/</span>
+          <span id="doc-section-name"></span>
+        </div>
+        <a id="doc-source-link" class="source-link" href="https://github.com/Syntiox/Syntiox-CORE" target="_blank" rel="noopener noreferrer">View source .md</a>
+      </div>
+
+      <article id="markdown-root" class="markdown-body" aria-live="polite">
+        <p class="loading-state">Loading documentation...</p>
+      </article>
+
+      <nav id="doc-pager" class="doc-pager" aria-label="Page navigation"></nav>
+
+      <footer class="site-footer">
+        <div class="footer-brand">
+          <img src="./favicon.svg" alt="" width="18" height="18" aria-hidden="true">
+          <span>Syntiox CORE · Local AI Agent OS for Windows · MIT License</span>
+        </div>
+        <div class="footer-links">
+          <a href="https://github.com/Syntiox/Syntiox-CORE" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://github.com/Syntiox/Syntiox-CORE/releases/latest" target="_blank" rel="noopener noreferrer">Releases</a>
+          <a href="#/guides/mcp-servers">MCP Guide</a>
+          <a href="#/guides/skills-and-rules">Skills Guide</a>
+          <a href="#/reference/security">Security</a>
+          <a href="https://github.com/Syntiox/Syntiox-CORE/blob/master/LICENSE" target="_blank" rel="noopener noreferrer">License</a>
+        </div>
+      </footer>
+    </main>
+
+    <aside id="toc-aside" class="toc-aside" aria-label="On this page">
+      <div class="toc-inner">
+        <h2 class="toc-title">On this page</h2>
+        <nav id="toc-list" class="toc-list"></nav>
+      </div>
+    </aside>
+  </div>
+
+  <div id="search-modal" class="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-title" hidden>
+    <div id="search-overlay" class="search-overlay"></div>
+    <div class="search-dialog spectrum-border">
+      <h2 id="search-modal-title" class="sr-only">Search Syntiox CORE documentation</h2>
+      <div class="search-input-row">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input id="search-input" class="search-input" type="search" placeholder="Search features, .env keys, MCP, skills, paths..." autocomplete="off" spellcheck="false">
+        <button id="search-close" class="esc-btn" type="button">Esc</button>
+      </div>
+      <div id="search-status" class="search-status"></div>
+      <ul id="search-results" class="search-results" role="listbox" aria-label="Search results"></ul>
+      <div class="search-footer">
+        <span><kbd>Up</kbd> <kbd>Down</kbd> Navigate</span>
+        <span><kbd>Enter</kbd> Open</span>
+        <span><kbd>Esc</kbd> Close</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked@15.0.12/marked.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.11.1/highlight.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.11.1/languages/powershell.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.4/dist/purify.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.1.0/dist/fuse.min.js" defer></script>
+  <script src="./app.js" defer></script>
+</body>
+</html>

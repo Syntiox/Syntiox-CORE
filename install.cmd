@@ -8,7 +8,7 @@ echo =================================================================
 echo.
 echo Please use the following PowerShell command to install correctly:
 echo.
-echo irm https://raw.githubusercontent.com/Syntiox/Syntiox-CORE/master/install.cmd -OutFile install.cmd ; .\install.cmd
+echo irm https://syntiox.github.io/Syntiox-CORE/install.cmd -OutFile install.cmd ; .\install.cmd
 echo.
 exit /b 1
 
